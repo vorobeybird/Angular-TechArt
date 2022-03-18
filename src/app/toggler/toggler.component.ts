@@ -9,13 +9,19 @@ export class TogglerComponent implements OnInit {
 
   constructor() { }
 
-  isActive = true;
+  public isActive = true;
 
   ngOnInit(): void {
   }
 
   toggleActive(){
     this.isActive = !this.isActive
+  }
+
+  get statusLabel():string{
+
+    return this.isActive ? 'Active' : 'Inactive'
+
   }
 
 }

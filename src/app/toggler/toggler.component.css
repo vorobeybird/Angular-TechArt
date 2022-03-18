@@ -46,3 +46,7 @@
   /* .toggler.inactive {
     background-color: greenyellow
   } */
+
+  .toggler__status{
+    padding-left: 10px;
+  }
