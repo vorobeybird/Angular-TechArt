@@ -1,0 +1,8 @@
+
+<div class="box">
+    <div [ngClass]="!isActive ? 'inactive': ''" (click)="toggleActive()"  class="toggler">
+    </div>
+    <div style="padding-left: 10px;">
+         <p >{{isActive ? 'Active' : 'Inactive'}}</p>
+        </div>
+</div>
