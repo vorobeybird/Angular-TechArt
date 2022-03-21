@@ -5,3 +5,7 @@
   margin: 0 auto;
   align-items: center;
 }
+
+.app-toggler__title {
+  margin-right: 10px;
+}

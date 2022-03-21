@@ -32,7 +32,7 @@
   border-radius: 50%;
 }
 
-.toggler.disabled{
+.toggler.disabled {
   pointer-events: none;
   opacity: 0.5;
 }
