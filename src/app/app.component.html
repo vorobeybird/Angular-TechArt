@@ -1,9 +1,5 @@
 <div class="content">
-  <app-toggler>
-    
-  </app-toggler>
-  
-  <app-toggler>
-    
-  </app-toggler>
+  <app-toggler [isUserActive]="true" (onChange)="onToggleChange($event)"> </app-toggler>
+
+  <app-toggler [disabled]="true" > </app-toggler>
 </div>
