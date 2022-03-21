@@ -1,8 +1,12 @@
-
 <div class="box">
-    <div [class.inactive]="!isActive" (click)="toggleActive()"  class="toggler">
-    </div>
-    <div class="toggler__status">
-         <p >{{statusLabel}}</p>
-        </div>
+    <ng-content></ng-content>
+  <div
+    [class.inactive]="!isActive"
+    [class.disabled]="disabled"
+    (click)="toggleActive()"
+    class="toggler"
+  ></div>
+  <div class="toggler__status">
+    <p>{{ statusLabel }}</p>
+  </div>
 </div>
