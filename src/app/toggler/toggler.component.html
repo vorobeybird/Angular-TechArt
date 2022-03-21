@@ -1,7 +1,7 @@
 <div class="box">
     <ng-content></ng-content>
   <div
-    [class.inactive]="!isUserActive"
+    [class.inactive]="!isActive"
     [class.disabled]="disabled"
     (click)="toggleActive()"
     class="toggler"

@@ -7,21 +7,21 @@ import { Component, Input,Output, OnInit, EventEmitter } from '@angular/core';
 })
 export class TogglerComponent implements OnInit {
 
-  @Input() public isUserActive : boolean = true;
+  @Input() public isActive : boolean = true;
   @Input() public disabled : boolean = false;
 
-  @Output() onChange = new EventEmitter<boolean>();
+  @Output() onChange: EventEmitter< boolean > = new EventEmitter<boolean>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  toggleActive() {
-    this.isUserActive = !this.isUserActive;
-    this.onChange.emit(this.isUserActive)
+  toggleActive(): void {
+    this.isActive = !this.isActive;
+    this.onChange.emit(this.isActive)
   }
   
   get statusLabel(): string {
-    return this.isUserActive ? 'Active' : 'Inactive';
+    return this.isActive ? 'Active' : 'Inactive';
   }
 }

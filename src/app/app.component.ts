@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'css-angular';
+  title:string = 'css-angular';
 
-  onToggleChange(toggleValue: boolean) {
+  onToggleChange(toggleValue: boolean): void {
     console.log('Toggler switched to: ', toggleValue ? 'Active state' : 'Inactive state');
   }
 }
