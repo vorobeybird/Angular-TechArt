@@ -1,4 +1,4 @@
-import { Component, Input,Output, OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-toggler',
@@ -6,11 +6,10 @@ import { Component, Input,Output, OnInit, EventEmitter } from '@angular/core';
   styleUrls: ['./toggler.component.css'],
 })
 export class TogglerComponent implements OnInit {
+  @Input() public isActive: boolean = true;
+  @Input() public disabled: boolean = false;
 
-  @Input() public isActive : boolean = true;
-  @Input() public disabled : boolean = false;
-
-  @Output() onChange: EventEmitter< boolean > = new EventEmitter<boolean>();
+  @Output() onChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {}
 
@@ -18,9 +17,9 @@ export class TogglerComponent implements OnInit {
 
   toggleActive(): void {
     this.isActive = !this.isActive;
-    this.onChange.emit(this.isActive)
+    this.onChange.emit(this.isActive);
   }
-  
+
   get statusLabel(): string {
     return this.isActive ? 'Active' : 'Inactive';
   }
