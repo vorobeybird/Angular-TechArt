@@ -8,7 +8,6 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 export class TogglerComponent implements OnInit {
   @Input() public isActive: boolean = true;
   @Input() public disabled: boolean = false;
-
   @Output() onChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {}

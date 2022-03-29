@@ -6,6 +6,8 @@ import { TogglerComponent } from './toggler/toggler.component';
 import { SearchComponent } from './search/search.component';
 import { ActionButtonComponent } from './action-button/action-button.component';
 import { DataService } from './data.service';
+import { SearchItemComponent } from './search/search-item/search-item.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,10 +15,12 @@ import { DataService } from './data.service';
     AppComponent,
     TogglerComponent,
     SearchComponent,
-    ActionButtonComponent
+    ActionButtonComponent,
+    SearchItemComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

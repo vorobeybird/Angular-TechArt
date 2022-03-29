@@ -1,0 +1,13 @@
+.search-result-item {
+    cursor: pointer;
+}
+
+.search-result-item p {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.search-result-item:hover {
+  background-color: antiquewhite;
+}

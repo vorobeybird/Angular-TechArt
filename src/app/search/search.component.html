@@ -1,14 +1,28 @@
-<div class="search-component">
-  <form id="form" role="search">
-    <input
-      type="search"
-      id="query"
-      name="q"
-      placeholder="Search..."
-      aria-label="Search through site content"
-      #searchInput
-      (keyup)="onSearchChanged($event)"
-    />
-  </form>
-  <ng-content></ng-content>
+<div class="search">
+  <div class="search-input" >
+    <form id="form" role="search">
+      <input
+        type="search"
+        id="query"
+        name="q"
+        placeholder="Search..."
+        value={{searchValue}}
+        aria-label="Search through site content"
+        #searchInput
+        (input)="onSearchChange($event)"
+        (keyup)="onSearchChanged(searchValue)"
+      />
+    </form>
+    <app-action-button (click)="clearSearchValues()">
+      ✖
+    </app-action-button>
+  </div>
+  <div class="search-result">
+    <app-search-item
+      *ngFor="let searchResult of searchResults"
+      [searchText]="searchResult"
+      (textSelected)="onValueSelect($event)"
+    >
+    </app-search-item>
+  </div>
 </div>

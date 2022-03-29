@@ -8,13 +8,7 @@
     </app-toggler>
   </div>
   <div>
-    <app-search (searchUpdated)="onSearch($event, apiData)">
-      <app-action-button>
-        ✖
-      </app-action-button>
+    <app-search >
     </app-search>
-    <p *ngFor="let item of searchResults">
-      {{item}}
-    </p>
   </div>
 </div>
