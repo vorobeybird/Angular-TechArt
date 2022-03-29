@@ -1,5 +1,5 @@
 <div class="search">
-  <div class="search-input" >
+  <div class="search-input">
     <form id="form" role="search">
       <input
         type="text"
@@ -8,9 +8,7 @@
         [formControl]="searchValue"
       />
     </form>
-    <app-action-button (click)="clearSearchValues()">
-      ✖
-    </app-action-button>
+    <app-action-button (click)="clearSearchValues()"> ✖ </app-action-button>
   </div>
   <div class="search-result">
     <app-search-item

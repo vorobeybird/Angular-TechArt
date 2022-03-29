@@ -1,7 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Subscription } from 'rxjs';
-
+import { fromEvent, Subscription } from 'rxjs';
+import { pipe } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import { DataService } from '../data.service';
 
 @Component({
@@ -22,13 +23,15 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiData = this.dataService.result;
-    this.searchSubsription.add(this.searchValue.valueChanges.subscribe((v) =>
-      this.onSearchChanged(v)
-    ))
+    this.searchSubsription.add(
+      this.searchValue.valueChanges
+        .pipe(debounceTime(500))
+        .subscribe((value) => this.findValuesByInput(value, this.apiData))
+    );
   }
 
   ngOnDestroy(): void {
-    this.searchSubsription.unsubscribe()
+    this.searchSubsription.unsubscribe();
   }
 
   clearSearchValues(): void {
@@ -37,7 +40,7 @@ export class SearchComponent implements OnInit {
   }
 
   public onValueSelect(text: string): void {
-    this.searchValue.setValue(text)
+    this.searchValue.setValue(text);
     this.searchResults = [];
   }
 
@@ -45,19 +48,5 @@ export class SearchComponent implements OnInit {
     console.log(typeof searchValue);
     const filteredSearch = data.filter((item) => item.startsWith(searchValue));
     this.searchResults = filteredSearch;
-  }
-
-  public onSearchChanged(searchValue: string | null) {
-    console.log('Delay is set to: ' + this.delaySearch);
-    if (searchValue) {
-      if (this.delaySearch) {
-        if (this.timer) {
-          clearTimeout(this.timer);
-        }
-        this.timer = setTimeout(() =>
-          this.findValuesByInput(searchValue, this.apiData)
-        );
-      } else this.findValuesByInput(searchValue, this.apiData);
-    }
   }
 }
