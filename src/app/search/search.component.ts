@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 import { DataService } from '../data.service';
 
@@ -8,34 +10,39 @@ import { DataService } from '../data.service';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent implements OnInit {
-  public searchValue: string | null = null;
   private timer: any;
   private delaySearch: boolean = true;
   public searchResults: string[] = [];
   private apiData: string[] = [];
 
+  searchValue = new FormControl('');
+  private searchSubsription = new Subscription();
+
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
     this.apiData = this.dataService.result;
+    this.searchSubsription.add(this.searchValue.valueChanges.subscribe((v) =>
+      this.onSearchChanged(v)
+    ))
+  }
+
+  ngOnDestroy(): void {
+    this.searchSubsription.unsubscribe()
   }
 
   clearSearchValues(): void {
     this.searchResults = [];
-    this.searchValue = null;
+    this.searchValue.reset();
   }
 
   public onValueSelect(text: string): void {
-    this.searchValue = text;
+    this.searchValue.setValue(text)
     this.searchResults = [];
   }
 
-  public onSearchChange(e: any) {
-    this.searchValue = e.target.value;
-  }
-
   private findValuesByInput(searchValue: string, data: string[]): void {
-    console.log(typeof(searchValue))
+    console.log(typeof searchValue);
     const filteredSearch = data.filter((item) => item.startsWith(searchValue));
     this.searchResults = filteredSearch;
   }
@@ -47,9 +54,8 @@ export class SearchComponent implements OnInit {
         if (this.timer) {
           clearTimeout(this.timer);
         }
-        this.timer = setTimeout(
-          () => this.findValuesByInput(searchValue, this.apiData),
-          0
+        this.timer = setTimeout(() =>
+          this.findValuesByInput(searchValue, this.apiData)
         );
       } else this.findValuesByInput(searchValue, this.apiData);
     }

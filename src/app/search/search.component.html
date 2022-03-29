@@ -2,15 +2,10 @@
   <div class="search-input" >
     <form id="form" role="search">
       <input
-        type="search"
-        id="query"
-        name="q"
+        type="text"
         placeholder="Search..."
-        value={{searchValue}}
         aria-label="Search through site content"
-        #searchInput
-        (input)="onSearchChange($event)"
-        (keyup)="onSearchChanged(searchValue)"
+        [formControl]="searchValue"
       />
     </form>
     <app-action-button (click)="clearSearchValues()">
