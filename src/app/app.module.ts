@@ -7,7 +7,7 @@ import { SearchComponent } from './search/search.component';
 import { ActionButtonComponent } from './action-button/action-button.component';
 import { DataService } from './data.service';
 import { SearchItemComponent } from './search/search-item/search-item.component';
-import { FormsModule } from '@angular/forms';
+import { DebounceClickDirective } from './directives/debounce-click.directive';
 
 
 @NgModule({
@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     SearchComponent,
     ActionButtonComponent,
     SearchItemComponent,
+    DebounceClickDirective,
     
   ],
   imports: [

@@ -20,4 +20,8 @@ export class AppComponent implements OnInit {
       toggleValue ? 'Active state' : 'Inactive state'
     );
   }
+
+  log():void{
+    console.log('Debounce click works')
+  }
 }
