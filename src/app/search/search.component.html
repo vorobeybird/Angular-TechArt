@@ -1,0 +1,21 @@
+<div class="search">
+  <div class="search-input">
+    <form id="form" role="search">
+      <input
+        type="text"
+        placeholder="Search..."
+        aria-label="Search through site content"
+        [formControl]="searchValue"
+      />
+    </form>
+    <app-action-button (click)="clearSearchValues()"> ✖ </app-action-button>
+  </div>
+  <div class="search-result">
+    <app-search-item
+      *ngFor="let searchResult of searchResults"
+      [searchText]="searchResult"
+      (textSelected)="onValueSelect($event)"
+    >
+    </app-search-item>
+  </div>
+</div>

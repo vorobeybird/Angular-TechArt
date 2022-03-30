@@ -1,9 +1,14 @@
 <div class="content">
-  <app-toggler [isActive]="true" (onChange)="onToggleChange($event)">
-    <b class="app-toggler__title">User Title</b>
-  </app-toggler>
-  <hr>
-  <app-toggler [disabled]="true">
-    <b class="app-toggler__title">Team Title</b>
-  </app-toggler>
+  <div>
+    <app-toggler [isActive]="true" (onChange)="onToggleChange($event)">
+      <b class="app-toggler__title">User Title</b>
+    </app-toggler>
+    <app-toggler [disabled]="true">
+      <b class="app-toggler__title">Team Title</b>
+    </app-toggler>
+  </div>
+  <div>
+    <app-search >
+    </app-search>
+  </div>
 </div>
