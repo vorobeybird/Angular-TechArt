@@ -11,4 +11,9 @@
     <app-search >
     </app-search>
   </div>
+  <div>
+    <app-action-button appDebounceClick (debounceClick)="log()" [debounceTime]="300">
+      Debounce Button
+    </app-action-button>
+  </div>
 </div>

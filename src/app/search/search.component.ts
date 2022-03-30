@@ -25,7 +25,7 @@ export class SearchComponent implements OnInit {
     this.apiData = this.dataService.result;
     this.searchSubsription.add(
       this.searchValue.valueChanges
-        .pipe(debounceTime(500))
+        .pipe(debounceTime(300))
         .subscribe((value) => this.findValuesByInput(value, this.apiData))
     );
   }
