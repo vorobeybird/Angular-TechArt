@@ -18,6 +18,9 @@
     >
       Debounce Button
     </app-action-button>
-    <p *shFor="5; let i">hello {{ i }}</p>
+    <div *shFor="5; let i=index; let g = myOwnProperty">
+      <span>Line number {{i}}</span>
+      <span>My own Prop {{g}}</span>
+    </div>
   </div>
 </div>
