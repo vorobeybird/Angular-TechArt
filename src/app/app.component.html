@@ -15,5 +15,8 @@
     <app-action-button appDebounceClick (debounceClick)="log()" [debounceTime]="300">
       Debounce Button
     </app-action-button>
+    <p *shFor="5;let index">
+      hello {{index}}
+    </p>
   </div>
 </div>
