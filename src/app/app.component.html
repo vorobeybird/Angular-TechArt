@@ -18,7 +18,8 @@
     >
       Debounce Button
     </app-action-button>
-    <div *shFor="5; let i=index; let g = myOwnProperty">
+    <input type="text" (input)="setTestInputValue($event)" #testInput>
+    <div *shFor="testInputValue; let i=index; let g = myOwnProperty">
       <span>Line number {{i}}</span>
       <span>My own Prop {{g}}</span>
     </div>

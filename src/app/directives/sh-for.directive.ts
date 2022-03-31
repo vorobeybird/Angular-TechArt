@@ -11,6 +11,7 @@ export class ShForDirective {
 
   @Input()
   set shFor(times: number) {
+    this.viewContainer.clear()
     for (let i = 0; i < times; i++) {
       this.viewContainer.createEmbeddedView(this.templateRef, 
         {myOwnProperty: `Prop ${i*10} prop - prop`,
