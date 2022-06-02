@@ -8,10 +8,14 @@ import { DataService } from './data.service';
 })
 export class AppComponent implements OnInit {
   title: string = 'css-angular';
-
+  public testInputValue: number = 0; 
   constructor() {}
 
   ngOnInit(): void {
+  }
+
+  public setTestInputValue(e:any):void {
+    this.testInputValue = e.target.value 
   }
 
   onToggleChange(toggleValue: boolean): void {

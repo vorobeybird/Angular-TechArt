@@ -8,12 +8,20 @@
     </app-toggler>
   </div>
   <div>
-    <app-search >
-    </app-search>
+    <app-search> </app-search>
   </div>
   <div>
-    <app-action-button appDebounceClick (debounceClick)="log()" [debounceTime]="300">
+    <app-action-button
+      appDebounceClick
+      (debounceClick)="log()"
+      [debounceTime]="300"
+    >
       Debounce Button
     </app-action-button>
+    <input type="text" (input)="setTestInputValue($event)" #testInput>
+    <div *shFor="testInputValue; let i=index; let g = myOwnProperty">
+      <span>Line number {{i}}</span>
+      <span>My own Prop {{g}}</span>
+    </div>
   </div>
 </div>

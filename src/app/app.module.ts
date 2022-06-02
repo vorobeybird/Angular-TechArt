@@ -8,6 +8,7 @@ import { ActionButtonComponent } from './action-button/action-button.component';
 import { DataService } from './data.service';
 import { SearchItemComponent } from './search/search-item/search-item.component';
 import { DebounceClickDirective } from './directives/debounce-click.directive';
+import { ShForDirective } from './directives/sh-for.directive';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { DebounceClickDirective } from './directives/debounce-click.directive';
     ActionButtonComponent,
     SearchItemComponent,
     DebounceClickDirective,
+    ShForDirective,
     
   ],
   imports: [
